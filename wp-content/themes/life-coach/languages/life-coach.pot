@@ -1,0 +1,132 @@
+# <!=Copyright (C) 2018 Blossom Themes
+# This file is distributed under the same license as the Life Coach package.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: Life Coach 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/life-coach\n"
+"POT-Creation-Date: 2018-10-01 12:34:38+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: functions.php:50
+msgid "Demo & Documentation"
+msgstr ""
+
+#: functions.php:63
+msgid "Demo Link: %1$sClick here.%2$s"
+msgstr ""
+
+#: functions.php:65
+msgid "Documentation Link: %1$sClick here.%2$s"
+msgstr ""
+
+#: functions.php:94
+msgid "Site Title Font"
+msgstr ""
+
+#: functions.php:95
+msgid "Site title and tagline font."
+msgstr ""
+
+#: functions.php:117
+msgid "Site Title Font Size"
+msgstr ""
+
+#: functions.php:118
+msgid "Change the font size of your site title."
+msgstr ""
+
+#: functions.php:133
+msgid "Typography"
+msgstr ""
+
+#: functions.php:153
+msgid "Primary Font"
+msgstr ""
+
+#: functions.php:154
+msgid "Primary font of the site."
+msgstr ""
+
+#: functions.php:175
+msgid "Secondary Font"
+msgstr ""
+
+#: functions.php:176
+msgid "Secondary font of the site."
+msgstr ""
+
+#: functions.php:434
+msgid " Life Coach"
+msgstr ""
+
+#: functions.php:434
+msgid " by Blossom Themes."
+msgstr ""
+
+#: functions.php:435
+msgid " Powered by %s"
+msgstr ""
+
+#: functions.php:435
+msgid "https://wordpress.org/"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Life Coach"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://blossomthemes.com/downloads/life-coach-free-wordpress-theme/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Life Coach is a free WordPress coaching theme designed to create websites "
+"for coach, mentors, speakers and therapists. You can easily use this theme "
+"to create stunning website without any knowledge of coding. The theme is "
+"designed with features that highlights you and yours services that will "
+"help to improve your followings. The theme is also multi-purpose. So you "
+"can also use it to build small business (restaurants/cafe, travel, "
+"education, hotel, construction, events, wedding planners, fitness, "
+"affiliate, fashion, lawyer, consulting, sport/medical shops, spa/temas, "
+"political), portfolio, church, online agencies and firms, charity, "
+"ecommerce (WooCommerce), and freelancers websites. It is responsive, "
+"Schema.org compatible, SEO friendly, RTL compatible, speed optimized, and "
+"translation ready. Check theme details at "
+"https://blossomthemes.com/downloads/life-coach-free-wordpress-theme/, demo "
+"at https://demo.blossomthemes.com/life-coach/, read the documentation at "
+"https://blossomthemes.com/life-coach-free-theme-documentation/, and get "
+"support at https://blossomthemes.com/support-ticket/."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Blossom Themes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://blossomthemes.com/"
+msgstr ""
+
+#: functions.php:241
+#. Translators: If there are characters in your language that are not supported
+#. by respective fonts, translate this to 'off'. Do not translate into your own
+#. language.
+msgctxt "Primary Font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:242
+msgctxt "Secondary Font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:243
+msgctxt "Site Title Font: on or off"
+msgid "on"
+msgstr ""

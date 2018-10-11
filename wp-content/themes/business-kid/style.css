@@ -1,0 +1,267 @@
+/**
+Theme Name: Business Kid
+Theme URI: http://evisionthemes.com/product/business-click/
+Author: eVision Themes
+Author URI: http://evisionthemes.com/
+Template: business-click
+Text Domain: business-kid
+Description: Business Kid theme is a clean and simple child theme of Business Click with flexible features. No coding required. You can create a professional website within few moments. It's free! This creative theme supports popular plugins like Jetpack, WP page navi, Contact form 7, Elementor page builder, Page Builder by SiteOrigin, W3 Total Cache, Social Pug, All in One SEO Pack, MailChimp, WooCommerce etc. If you are a non-techy person, you can easily modify the theme and design using live customizer in Dashboard > Appearance> Customize. You can change the color and the font of each and every text, link in the theme.
+Version: 1.0.0
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, left-sidebar, right-sidebar, blog, e-commerce, theme-options, custom-colors, full-width-template, one-column, grid-layout, footer-widgets, portfolio
+ */
+/* MIXINS */
+/*prifix */
+.img-cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+#evt-call-to-action {
+  background-color: #578ECF;
+}
+
+#evt-call-to-action .btn {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: 600;
+}
+@media (min-width: 576px) {
+  #evt-call-to-action .btn-group {
+    margin-left: 30px;
+  }
+  #evt-call-to-action .col-md-10.col-lg-8 {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  #evt-call-to-action .widget-title {
+    padding-bottom: 0;
+  }
+  #evt-call-to-action .evt-img-overlay {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #evt-call-to-action .text-group {
+    text-align: left;
+  }
+  #evt-call-to-action .widget-title {
+    text-align: left;
+  }
+  #evt-call-to-action .btn-group {
+    max-height: 34px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  #evt-call-to-action .btn-group {
+    display: block;
+  }
+  #evt-call-to-action .btn {
+    margin-right: 0 !important;
+  }
+  #evt-call-to-action .btn-group {
+    text-align: right;
+  }
+  #evt-call-to-action .btn-group .btn {
+    margin-bottom: 10px;
+  }
+}
+
+#evt-testimonials .evt-box-caption {
+  text-align: center;
+}
+#evt-testimonials .evt-testimonials-author .profile-img,
+#evt-testimonials .evt-testimonials-author .profile-info {
+  float: none;
+}
+#evt-testimonials .evt-testimonials-author {
+  text-align: center;
+}
+#evt-testimonials .profile-img {
+  margin-right: 0;
+}
+#evt-testimonials .evt-testimonials-slider {
+  background: transparent;
+}
+#evt-testimonials ul.slick-dots li button {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+#evt-testimonials .justify-content-lg-end,
+#evt-testimonials .justify-content-lg-start {
+  justify-content: center !important;
+}
+#evt-testimonials .slick-slider.evt-testimonials-slider .slick-arrow {
+  bottom: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin-top: 0;
+}
+#evt-testimonials .slick-slider.evt-testimonials-slider .slick-arrow.slick-prev {
+  right: auto;
+  left: 0;
+}
+#evt-testimonials .slick-slider.evt-testimonials-slider .slick-arrow.slick-next {
+  right: 0;
+}
+
+.widget-title:before, .widgettitle:before, .woocommerce div.product .product_title:before, .page-title:before, body .entry-title:before, .widget_search form .search-submit, .evt-head-search form .search-submit, .pagination .nav-links a, .wp-pagenavi a, .woocommerce nav.woocommerce-pagination a, .pagination .nav-links span, .wp-pagenavi span, .woocommerce nav.woocommerce-pagination span, a.btn, .btn, .read-more, .wpcf7-form .wpcf7-submit, .woocommerce #respond input#submit, .woocommerce div.product form.cart .button, .woocommerce #respond input#submit.alt, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, button, input[type="button"], input[type="reset"], input[type="submit"], .btn.btn-reverse:hover, .wp-pagenavi a:hover, .wp-pagenavi span.current, .pagination .nav-links ul li span.current, .wp-pagenavi ul li span.current, .woocommerce nav.woocommerce-pagination ul li span.current, .pagination .nav-links ul li span:hover, .wp-pagenavi ul li span:hover, .woocommerce nav.woocommerce-pagination ul li span:hover, .pagination .nav-links ul li a:hover, .wp-pagenavi ul li a:hover, .woocommerce nav.woocommerce-pagination ul li a:hover, header.site-header .evt-header-wrap-nav .evt-menu-toggler-manage #menu-icon.menu-toggler:hover span, ul.slick-dots li button:hover, ul.slick-dots li.slick-active button, .woocommerce span.onsale, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .evt-carousel.slick-slider ul.slick-dots li button:hover, .evt-carousel.slick-slider ul.slick-dots li.slick-active button, .evt-featured-item-wrap .evt-featured-item .evt-featured-icon, #evt-top-header, .evt-thumb-holder .evt-thumb-hover, #evt-team .evt-box-item-wrap .evt-box-image .evt-box-social-icons, #evt-testimonials .evt-testimonials-slider, .elementor-widget-button a.elementor-button, .elementor-widget-button .elementor-button, .elementor-slick-slider ul.slick-dots li button, .elementor-widget-icon.elementor-view-stacked .elementor-icon, body .elementor-social-icon, body .elementor-add-new-section .elementor-add-section-button {
+  background-color: #ed4d00;
+}
+
+a:hover, .evt-item article .entry-title a:hover, a.readmore, .readmore, .breadcrumbs .trail-items .trail-item a, .slick-slider .slick-arrow:hover, .woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce-message::before, .woocommerce-info::before, .woocommerce form .form-row .required, .evt-head-search-toggler:hover i, body.head-search-active .evt-head-search-toggler .fa-search, nav#site-navigation ul li:hover > a, nav#site-navigation ul#menu > li.current-menu-item > a, nav#site-navigation ul.nav-menu > li.current-menu-item > a, nav#site-navigation ul.menu > li.current-menu-item > a, nav#site-navigation > ul > li.current-menu-item > a, #evt-top-header .evt-head-search-toggler:hover, body.home.transparent-header:not(.small-header) nav#site-navigation ul#menu > li > a:hover, body.home.transparent-header:not(.small-header) nav#site-navigation ul.nav-menu > li > a:hover, body.home.transparent-header:not(.small-header) nav#site-navigation ul.menu > li > a:hover, body.home.transparent-header:not(.small-header) nav#site-navigation > ul > li > a:hover, body.home.transparent-header:not(.small-header) nav#site-navigation ul a:hover, body.home.transparent-header:not(.small-header) nav#site-navigation ul#menu > li.current-menu-item > a, body.home.transparent-header:not(.small-header) nav#site-navigation ul.nav-menu > li.current-menu-item > a, body.home.transparent-header:not(.small-header) nav#site-navigation ul.menu > li.current-menu-item > a, #evt-portfolio #filters button.is-checked, #evt-team .evt-box-item-wrap .evt-box-caption .evt-designation, .elementor-widget-icon-box.elementor-view-framed .elementor-icon, body .elementor-widget-heading .elementor-heading-title > a {
+  color: #ed4d00;
+}
+
+.widget-title, .widgettitle, .woocommerce div.product .product_title, .page-title, body .entry-title {
+  margin-bottom: 30px !important;
+}
+
+.widget-title:before, .widgettitle:before, .page-title:before, .entry-title:before {
+  display: block;
+}
+
+.hide-header-on-scroll-down.fixed-header .site-header.nav-up {
+  transform: translate(0, 0%);
+}
+
+#evt-banner .slick-slider.evt-banner-slider .slick-arrow {
+  display: none;
+  visibility: hidden;
+}
+#evt-banner .evt-banner-slider .evt-overlay:after,
+#evt-banner .evt-banner-slider .coin-slider:after {
+  background-color: transparent !important;
+}
+#evt-banner .evt-banner-caption {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+@media (min-width: 576px) {
+  #evt-banner .evt-banner-image .evt-banner-caption {
+    margin: 0;
+  }
+}
+#evt-banner .evt-banner-image .evt-banner-caption {
+  text-align: left;
+}
+@media (min-width: 992px) {
+  #evt-banner .evt-banner-slider ul.slick-dots {
+    margin-top: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  #evt-banner .evt-banner-slider ul.slick-dots li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  #evt-banner .evt-banner-slider ul.slick-dots li:last-child {
+    margin-bottom: 0;
+  }
+  #evt-banner .evt-banner-slider ul.slick-dots li button {
+    width: 6px;
+    height: 30px;
+  }
+}
+#evt-banner #evt-banner .nivoSlider .nivo-caption,
+#evt-banner #evt-banner .metaslider .caption-wrap,
+#evt-banner #evt-banner .coin-slider .cs-title, #evt-banner .evt-banner-image .evt-banner-caption {
+  max-width: 600px;
+}
+#evt-banner .evt-banner-slider ul.slick-dots li button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#evt-banner .nivoSlider .nivo-caption h1,
+#evt-banner .metaslider .caption-wrap .caption h1,
+#evt-banner .evt-banner-image .evt-banner-caption .evt-title {
+  text-shadow: none;
+}
+
+body.has-featured-slider #evt-featured .evt-carousel.slick-slider:not(.slidesToShow-one) .slick-list .slick-slide {
+  margin-left: 0;
+  margin-right: 0;
+}
+body.has-featured-slider #evt-featured .evt-img-overlay {
+  padding-top: 0;
+}
+@media (min-width: 992px) {
+  body.has-featured-slider #evt-featured {
+    margin-top: -50px;
+  }
+  body.has-featured-slider #evt-featured .slick-track .slick-slide {
+    margin-top: 40px;
+  }
+  body.has-featured-slider #evt-featured .slick-track .slick-slide.slick-current + div {
+    margin-top: 0;
+  }
+  body.has-featured-slider #evt-featured .slick-track .slick-slide.slick-current + div .evt-featured-item {
+    padding-top: 60px;
+  }
+}
+body.has-featured-slider #evt-featured .widget-title,
+body.has-featured-slider #evt-featured .evt-featured-item-wrap {
+  background-color: #fff;
+}
+body.has-featured-slider #evt-featured .widget-title {
+  padding-top: 40px;
+}
+body.has-featured-slider #evt-featured .evt-featured-item-wrap {
+  padding: 0;
+  background-color: #fff;
+}
+body.has-featured-slider #evt-featured .evt-featured-item-wrap .evt-featured-item {
+  transition: 0.3s all ease;
+}
+body.has-featured-slider #evt-featured .evt-featured-item-wrap .evt-featured-item:hover {
+  background-color: #ed4d0020;
+}
+
+#evt-call-to-action {
+  background-color: #ed4d00;
+}
+#evt-call-to-action .evt-img-overlay {
+  background-color: transparent;
+}
+#evt-call-to-action .widget-title {
+  margin-bottom: 0 !important;
+}
+#evt-call-to-action p {
+  display: none;
+}
+#evt-call-to-action .btn {
+  max-height: 34px;
+}
+
+#evt-why-us .row .col:first-child {
+  order: 2;
+  align-self: flex-start !important;
+}
+
+#evt-testimonials.dark-background {
+  background-color: #ed4d00;
+}
+#evt-testimonials .evt-img-overlay {
+  background-color: transparent;
+}
+#evt-testimonials .text-left {
+  text-align: center !important;
+}
+
+#evt-blog .evt-blog-slider .evt-box-caption {
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

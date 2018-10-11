@@ -1,0 +1,8 @@
+
+.wptelegram-widget-message iframe {
+    min-width: initial !important;
+}
+body.body_widget_post {
+	width: auto;
+	min-width: 0;
+}
