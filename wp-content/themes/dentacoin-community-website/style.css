@@ -1,0 +1,364 @@
+/*
+ Theme Name:   Dentacoin Community Website
+ Description:  ...
+ Author:       Ludwig
+ Version:      1.0
+*/
+
+/* Globals */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    color: white;
+    padding-top: 120px;
+    /* background-image: radial-gradient(circle, black, transparent);
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: soft-light; */
+}
+
+body.custom-background {
+    background-size: auto;
+    background-blend-mode: normal;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+}
+
+.container {
+    max-width:1100px;
+    margin:0 auto;
+}
+
+@font-face {
+  font-family: "OpenSans-SemiBold";
+  src: url("fonts/OpenSans-SemiBold.eot");
+  src: url("fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-SemiBold.woff2") format("woff2"), url("fonts/OpenSans-SemiBold.woff") format("woff"), url("fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "Calibri Light";
+  src: url("fonts/calibril.eot");
+  src: url("fonts/calibril.eot?#iefix") format("embedded-opentype"), url("fonts/calibril.woff2") format("woff2"), url("fonts/calibril.woff") format("woff"), url("fonts/calibril.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "Ubuntu Light";
+  src: url("fonts/Ubuntu-L.eot");
+  src: url("fonts/Ubuntu-L.eot?#iefix") format("embedded-opentype"), url("fonts/Ubuntu-L.woff2") format("woff2"), url("fonts/Ubuntu-L.woff") format("woff"), url("fonts/Ubuntu-L.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "Ubuntu Regular";
+  src: url("fonts/Ubuntu-R.eot");
+  src: url("fonts/Ubuntu-R.eot?#iefix") format("embedded-opentype"), url("fonts/Ubuntu-R.woff2") format("woff2"), url("fonts/Ubuntu-R.woff") format("woff"), url("fonts/Ubuntu-R.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+
+/* Header */
+
+.site-header {
+    padding:0 1em;
+    position: relative;
+}
+
+.logo {
+  widht:200px;
+  padding:1em;
+  background:white;
+  display:block;
+  margin-bottom:1em;
+
+  border-color: black;
+  border-width: 1.5px;
+  border-style: solid;
+
+  font-family: "Ubuntu Regular";
+
+}
+@media screen and (min-width:800px) {
+    .site-header {
+        float:left;
+        width:30%;
+    }
+}
+
+/* Navigation */
+
+#toggle-nav {
+    position: absolute;
+    right: 1em;
+    top: 0;
+    background: black;
+    width: 60px;
+    height: 54px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+
+    color: white;
+    font-family: "Ubuntu Regular";
+}
+
+.js .site-nav {
+    display:none;
+}
+
+.site-nav {
+    margin-top:1em;
+    font-family: "Ubuntu Regular";
+    font-size: 16px;
+}
+
+.site-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.site-nav li {
+    margin-bottom:2px;
+}
+
+.site-nav a {
+    background:white;
+    padding:1em;
+    display:block;
+    text-decoration:none;
+
+    border-color: black;
+    border-width: 1.5px;
+    border-style: solid;
+
+}
+
+.site-nav a:hover {
+    background:rgba(0,0,0,0.3);
+}
+
+.site-nav .current-menu-item a {
+    background: black;
+    color: white;
+}
+
+}
+
+@media screen and (min-width:710px) and (max-width:800px) {
+    .site-nav li {
+      marin-right:2px;
+      float: left;
+    }
+}
+
+@media screen and (min-width:710px) {
+    .js .site-nav {
+        display:block;
+    }
+
+    #toggle-nav {
+        display:none;
+    }
+
+}
+
+
+/* Main */
+
+
+@media screen and (max-width:800px) {
+    .site-main {
+        padding-top:2em;
+}
+
+
+}
+@media screen and (min-width:600px) {
+    .site-main {
+        float:right;
+        width:100%;
+    }
+}
+
+@media screen and (min-width:800px) {
+    .site-main {
+        width:70%;
+    }
+}
+
+/* Content */
+
+.site-content {
+     padding:0 1em;
+     font-family: "Calibri";
+     /* font-size: 14px; */
+
+.site-content h1 a {
+    font-family: "Ubuntu light";
+}
+
+}
+
+@media screen and (min-width:600px) {
+    .site-content {
+        float:left;
+        width:100%;
+    }
+}
+
+
+
+
+/* .post {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 2em;
+    padding-top: 1em;
+}
+
+.post:first-child {
+    margin-top:0;
+    border:none;
+    padding-top:0;
+}
+
+.post-meta {
+    font-size:.8em;
+    opacity: .7;
+} */
+
+
+
+
+
+/* Sidebar */
+
+.site-sidebar {
+    padding:1em;
+}
+
+.widget {
+    background:rgba(0,0,0,0.3);
+    padding:1em;
+    margin-bottom:1em;
+}
+
+
+@media screen and (min-width:600px) {
+    .site-sidebar {
+        float:right;
+        width:0%;
+    }
+}
+
+/* remove dot at siedebar */
+.site-sidebar li {
+    list-style:none;
+}
+
+
+
+/* Footer */
+
+
+.site-footer {
+  padding:1em;
+  /* background:rgba(0,0,0,0.3); */
+  margin-top:5em;
+}
+
+
+/*  VON LUDWIG VERÄNDERT */
+
+/* .nav-social ul,
+.nav-secondary ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+    float:left;
+} */
+
+.nav-secondary ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+    float:left;
+}
+
+.nav-social ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+.nav-social li {
+    float:left;
+}
+.nav-social li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+}
+
+/* .social-media-icons {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+} */
+/*  VON LUDWIG VERÄNDERT ENDE*/
+
+
+.nav-social li,
+.nav-secondary li {
+    margin-bottom: 2px;
+}
+
+.nav-social a,
+.nav-secondary a {
+    display:block;
+    padding:1em;
+    /* background:rgba(0,0,0,0.3); */
+    text-decoration: none;
+
+    border-color: black;
+    border-width: 1.5px;
+    border-style: solid;
+
+    font-family: "Ubuntu Regular";
+}
+
+.nav-social a:hover,
+.nav-secondary a:hover {
+    background:rgba(0,0,0,0.3);
+}
+
+/* .nav-secondary .current-menu-item a {
+    background: white;
+    color: black;
+} */
+
+@media screen and (min-width:600px) {
+    .site-footer {
+        float:left;
+        width:100%;
+    }
+
+    .nav-secondary {
+        float:right;
+    }
+
+    .nav-social {
+        float:left;
+    }
+
+    .nav-social li,
+    .nav-secondary li {
+        float:left;
+        margin-right:2px;
+}
