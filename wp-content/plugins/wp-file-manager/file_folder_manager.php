@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 3.1
+  Version: 3.2
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
 **/
@@ -183,10 +183,6 @@ if(!class_exists('mk_file_folder_manager')):
 			add_submenu_page( 'wp_file_manager', __( 'System Properties', 'wp-file-manager' ), __( 'System Properties', 'wp-file-manager' ), 'manage_options', 'wp_file_manager_properties', array(&$this, 'wp_file_manager_properties'));
 			/* Only for admin */
 			add_submenu_page( 'wp_file_manager', __( 'Shortcode - PRO', 'wp-file-manager' ), __( 'Shortcode - PRO', 'wp-file-manager' ), 'manage_options', 'wp_file_manager_shortcode_doc', array(&$this, 'wp_file_manager_shortcode_doc'));
-			/* Only for admin */
-			add_submenu_page( 'wp_file_manager', __( 'Extensions', 'wp-file-manager' ), __( 'Extensions', 'wp-file-manager' ), 'manage_options', 'wp_file_manager_extension', array(&$this, 'wp_file_manager_extension'));
-			/* Only for admin */
-			add_submenu_page( 'wp_file_manager', __( 'Contribute', 'wp-file-manager' ), __( 'Contribute', 'wp-file-manager' ), 'manage_options', 'wp_file_manager_contribute', array(&$this, 'wp_file_manager_contribute'));
 		}
 		/* Main Role */
 		public function ffm_settings_callback()

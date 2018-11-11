@@ -3,9 +3,9 @@ Contributors: mndpsingh287
 Donate link: http://www.webdesi9.com/donate/?plugin=wp-file-manager
 Tags: wp-file-manager, elfinder,file manager, ftp, wordpress file manager,file manager, Upload Files, WP File Manager, File Manage, Edit Files, Delete Files, FTP, filemanager, wpfilemanager, ftp, file transfer, update, create, delete, view, rename, editor, Cpanel, Control Panel, Admin, Shortcode, explorer, file explorer
 Requires at least: 4.0
-Tested up to: 4.9.8
+Tested up to: 5.0
 Requires PHP: 5.2.4
-Stable tag: 3.1
+Stable tag: 3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,10 +55,20 @@ Multi Langauges Added
 
 
 > <strong>[Buy Pro Version](http://filemanager.webdesi9.com/product/file-manager/)</strong> with various features & support.
-> <strong>[Contact us](http://www.webdesi9.com/support/)</strong> for Support Only Pro Version Users.
-> <strong>[Documentation](http://filemanager.webdesi9.com/)</strong> Click Here.
-
+> <strong>[Contact us](https://webdesi9.zendesk.com/hc/en-us)</strong> for Support Only Pro Version Users.
+> <strong>[Documentation](https://filemanager.webdesi9.com/documentation/)</strong> Click Here.
+> <strong>[Addons](https://filemanager.webdesi9.com/addons)</strong> with various features & support.
 **[Upgrade to Pro Version](http://filemanager.webdesi9.com/product/file-manager/)**
+
+= Premium Addons =
+
+<strong>[File Manager Google Drive](https://filemanager.webdesi9.com/product/file-manager-google-drive)</strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in Google Drive.
+<strong>[File Manager OneDrive](https://filemanager.webdesi9.com/product/file-manager-one-drive)</strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in OneDrive from File Manager.
+<strong>[File Manager Dropbox](https://filemanager.webdesi9.com/product/file-manager-dropbox)</strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in dropbox.
+<strong>[File Manager Box](https://filemanager.webdesi9.com/product/file-manager-box)</strong> provides you ability to edit, delete, upload, download, copy and paste files and folders in Box.
+<strong>[File Manager Git](https://filemanager.webdesi9.com/product/file-manager-git)</strong> Github integration for file manager.
+<strong>[File Manager Slack](https://filemanager.webdesi9.com/product/file-manager-slack)</strong> Slack incoming webhook integration to file manager.
+
 
 == Installation ==
 
@@ -70,8 +80,8 @@ Multi Langauges Added
 = Can we make zip of any folder or file and download it ? =
 Yes, You can archieve any files and folders as zip then simple download it. Please view screenshots.
 
-= Support = 
-* If any problem occurs, please contact us at webdesi9.com/support/
+== Support == 
+* If any problem occurs, please contact us at https://webdesi9.zendesk.com/hc/en-us
 
 ## How to use
 
@@ -98,6 +108,10 @@ Yes, You can archieve any files and folders as zip then simple download it. Plea
 
 
 == Changelog ==
+
+= 3.2 (20th Oct, 2018) =
+
+* Compatible with php 7.3 and wordpress 5.0
 
 = 3.1 (17th Sep, 2018) =
 
@@ -199,7 +213,7 @@ major Performence fix
 
 
 == Upgrade Notice ==
-= Upgrade your old version to 1.8
+= Upgrade your old version to 3.2
 
 
 == Other Notes ==
@@ -209,4 +223,4 @@ major Performence fix
 *   PHP 5.x
 *   MySQL 5.x
 
-If any problem occurs, please contact us at http://www.webdesi9.com/support/.
+If any problem occurs, please contact us at https://webdesi9.zendesk.com/hc/en-us.
