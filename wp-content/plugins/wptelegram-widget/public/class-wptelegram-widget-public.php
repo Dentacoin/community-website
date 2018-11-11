@@ -6,8 +6,8 @@
  * @link       https://t.me/manzoorwanijk
  * @since      1.0.0
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/public
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/public
  */
 
 /**
@@ -16,11 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/public
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/public
  * @author     Manzoor Wani 
  */
-class Wptelegram_Widget_Public {
+class WPTelegram_Widget_Public {
+
+	/**
+	 * Title of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $title    Title of the plugin
+	 */
+	protected $title;
 
 	/**
 	 * The ID of this plugin.
@@ -41,6 +50,15 @@ class Wptelegram_Widget_Public {
 	private $version;
 
 	/**
+	 * The suffix to be used for JS and CSS files
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $suffix    The suffix to be used for JS and CSS files
+	 */
+	private $suffix;
+
+	/**
 	 * The Telegram API
 	 *
 	 * @since  	1.0.0
@@ -52,15 +70,19 @@ class Wptelegram_Widget_Public {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @since	1.0.0
+	 * @param 	string    $title		Title of the plugin
+	 * @param	string    $plugin_name	The name of the plugin.
+	 * @param	string    $version		The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $title, $plugin_name, $version ) {
 
+		$this->title = $title;
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		// Use minified libraries if SCRIPT_DEBUG is turned off
+		$this->suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 	}
 
 	/**
@@ -70,7 +92,7 @@ class Wptelegram_Widget_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wptelegram-widget-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, WPTELEGRAM_WIDGET_URL . '/public/css/wptelegram-widget-public' . $this->suffix . '.css', array(), $this->version, 'all' );
 
 	}
 
@@ -80,9 +102,8 @@ class Wptelegram_Widget_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		// Avoid caching during development
-		$this->version = date( "ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'js/wptelegram-widget-public.js' ));
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wptelegram-widget-public.js', array( 'jquery' ), $this->version, false );
+		
+		wp_enqueue_script( $this->plugin_name, WPTELEGRAM_WIDGET_URL . '/public/js/wptelegram-widget-public' . $this->suffix . '.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -91,38 +112,47 @@ class Wptelegram_Widget_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function widget_shortcode( $atts ) {
-		// settings page options
-		$options = wptelegram_widget_get_option( 'all' );
+	public static function feed_widget_shortcode( $atts ) {
+
+		// fetch messages
+		$messages = array_reverse( WPTG_Widget()->options()->get( 'messages', array() ) );
+
+		if ( empty( $messages ) ) {
+			return;
+		}
 		
 		$defaults = array(
             'num_messages'	=> 5,
-            'widget_with'	=> 100,
+            'widget_width'	=> 100,
             'author_photo'	=> 'auto',
         );
-        foreach ( $defaults as $key => $value ) {
-        	if ( isset( $options[ $key ] ) ) {
-        		$defaults[ $key ] = $options[ $key ];
-        	}
+
+        // use global options
+        foreach ( $defaults as $key => $default ) {
+    		$defaults[ $key ] = WPTG_Widget()->options()->get( $key, $default );
         }
-	    $args = shortcode_atts( $defaults, $atts );
 
-		$username = wptelegram_widget_get_option( 'username' );
+	    $args = shortcode_atts( $defaults, $atts, 'wptelegram-widget' );
 
-		// fetch messages
-		$option = 'wptelegram_widget_messages';
-		$messages = array_reverse( get_option( $option, array() ) );
-		$num_messages = $args['num_messages'];
-		if ( ! absint( $num_messages ) || $num_messages < 0 ) {
+        $args = array_map( 'sanitize_text_field', $args );
+
+		$username = WPTG_Widget()->options()->get( 'username' );
+
+		$num_messages = absint( $args['num_messages'] );
+
+		if ( ! $num_messages ) {
 			$num_messages = 5;
 		}
+
 		$messages = array_slice( $messages, 0, $num_messages );
-	    $widget_with = $args['widget_with'];
+
+	    $widget_width = absint( $args['widget_width'] );
 	    $author_photo = $args['author_photo'];
 
-	    if ( ! absint( $widget_with ) || $widget_with < 0 || $widget_with > 100 ) {
-			$widget_with = 100;
+	    if ( ! $widget_width || $widget_width > 100 ) {
+			$widget_width = 100;
 		}
+
 		switch ( $author_photo ) {
 			case 'always_show':
 				$author_photo = 'true';
@@ -132,20 +162,35 @@ class Wptelegram_Widget_Public {
 				break;
 			default:
 				$author_photo = null;
+				break;
 		}
-		$widget_options = compact(
-			'messages',
-			'username',
-			'widget_with',
-			'author_photo'
-		);
-	    set_query_var( 'widget_options', $widget_options );
+		
+		$action = 'wptelegram_widget_view';
+		if ( ! is_null( $author_photo ) ) {
+			$userpic = $author_photo;
+		}
+		$widget_args = compact( 'action', 'userpic' );
+
+	    set_query_var( 'widget_messages', $messages );
+	    set_query_var( 'widget_width', $widget_width );
+	    set_query_var( 'widget_args', $widget_args );
 
 		ob_start();
-        if ( $overridden_template = locate_template( 'wptelegram-widget/widget-view.php' ) ) {
-		    load_template( $overridden_template );
+        if ( $overridden_template = locate_template( 'wptelegram-widget/widget-template.php' ) ) {
+		    /**
+		     * locate_template() returns path to file.
+		     * if either the child theme or the parent theme have overridden the template.
+		     */
+
+			if ( self::is_valid_template( $overridden_template ) ) {
+			    load_template( $overridden_template );
+			}
 		} else {
-		    load_template( dirname( __FILE__ ) . '/partials/widget-view.php' );
+		    /*
+		     * If neither the child nor parent theme have overridden the template,
+		     * we load the template from the 'partials' sub-directory of the directory this file is in.
+		     */
+		    load_template( dirname( __FILE__ ) . '/partials/widget-template.php' );
 		}
         $html = ob_get_contents();
         ob_get_clean();
@@ -153,55 +198,54 @@ class Wptelegram_Widget_Public {
 	}
 
 	/**
-	 * Set up the basics to get/receive updates
+	 * Check whether the template path is valid
+	 *
+	 * @since	1.3.0
+	 * @param	string	$template	The template path
+	 * @return	bool
+	 */
+	private static function is_valid_template( $template ) {
+		/**
+		 * Only allow templates that are in the active theme directory,
+		 * parent theme directory, or the /wp-includes/theme-compat/ directory
+		 * (prevent directory traversal attacks)
+		 */
+		$valid_paths = array_map( 'realpath',
+			array(
+				STYLESHEETPATH,
+				TEMPLATEPATH,
+				ABSPATH . WPINC . '/theme-compat/',
+			)
+		);
+
+		$path = realpath( $template );
+
+		foreach ( $valid_paths as $valid_path ) {
+			if ( preg_match( '#\A' . preg_quote( $valid_path ) . '#', $path ) ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Pull the updates from Telegram
 	 *
 	 * @since    1.0.0
 	 */
-	public function setup_updates() {
+	public function trigger_pull_updates() {
 		// Avoid infinite loop
-		if ( isset( $_GET['action'] ) && 'wptelegram_widget_long_polling' == $_GET['action'] ) {
+		if ( isset( $_GET['action'] ) && 'wptelegram_widget_pull_updates' === $_GET['action'] ) {
 			return;
 		}
 
-		// settings page options
-		$bot_token = wptelegram_widget_get_option( 'bot_token' );
-		$username = wptelegram_widget_get_option( 'username' );
+		$bot_token = WPTG_Widget()->options()->get( 'bot_token' );
+		$username = WPTG_Widget()->options()->get( 'username' );
 
 		if ( ! $bot_token || ! $username ) {
 			return;
 		}
 
-		$this->tg_api = new WPTelegram_Bot_API( $bot_token );
-
-		$this->use_long_polling( $bot_token );
-	}
-
-	/**
-	 * Pull updates from Telegram
-	 *
-	 * @param string $bot_token
-	 * @since    1.0.0
-	 */
-	private function use_long_polling( $bot_token ) {
-		$transient = 'wptelegram_widget_last_check_for_webhook';
-		if ( ! get_site_transient( $transient ) ) {
-			$webhook_info = $this->tg_api->getWebhookInfo();
-			if ( ! is_wp_error( $webhook_info ) && 200 == $webhook_info->get_response_code() ) {
-				$result = $webhook_info->get_result();
-			}
-			// to be used to short circuit the function
-			set_site_transient( $transient, true, 600 );
-		}
-
-		// delete webhook if set
-		if ( isset( $result['url'] ) && $result['url'] ) {
-			$this->tg_api->deleteWebhook();
-		}
-		// return if already checked for updates in long_polling_interval
-		$transient = 'wptelegram_widget_long_polling_interval';
-		if ( get_site_transient( $transient ) ) {
-			return;
-		}
 		/**
 		 * Send a non-blocking request to admin-post.php
 		 * to reduce the processing time of the page
@@ -209,19 +253,54 @@ class Wptelegram_Widget_Public {
 		 */
 	    $admin_post_url = admin_url( 'admin-post.php' );
 	    $args = array(
-	    	'action'	=> 'wptelegram_widget_long_polling',
-	    	'bot_token'	=> $bot_token,
+	    	'action'	=> 'wptelegram_widget_pull_updates',
     	);
 		$post_url = add_query_arg( $args, $admin_post_url );
 	    $args = array(
-	    	'timeout' => 0.1,
-	    	'blocking' => false,
+	    	'timeout'	=> 0.1,
+	    	'blocking'	=> false,
     	);
 		wp_remote_post( $post_url, $args );
-		// expiration for the transient in seconds
-		// default to 5 minutes (300 seconds)
-		$expiration = (int) apply_filters( 'wptelegram_widget_updates_interval', 300 );;
-		set_site_transient( $transient, true, $expiration );
 	}
 
+	/**
+	 * Add custom schedules
+	 *
+	 * @since	1.0.0
+     * 
+	 */
+	public function custom_cron_schedules( $schedules ) {
+		$schedules['wptelegram_five_minutely'] = array(
+			'interval'	=> 5 * MINUTE_IN_SECONDS, // Intervals in seconds
+			'display'	=> __( 'Every 5 Minutes', 'wptelegram-widget' ),
+		);
+		return $schedules;
+	}
+
+	/**
+	 * Upgrade the options etc.
+	 */
+	public function do_upgrade() {
+		
+		$option = 'wptelegram_widget_messages';
+		$messages = get_option( $option, array() );
+
+		if ( ! empty( $messages ) ) {
+
+			WPTG_Widget()->options()->set( 'messages', $messages );
+
+			delete_option( $option );
+		}
+
+		$transient = 'wptelegram_widget_last_update_id';
+		if ( $update_id = (int) get_site_transient( $transient ) ) {
+			WPTG_Widget()->options()->set( 'last_update_id', $update_id );
+			delete_site_transient( $transient );
+		}
+
+		// set cron event in case of active plugin update
+		if ( ! wp_next_scheduled ( 'wptelegram_widget_pull_updates' ) ) {
+			wp_schedule_event( time(), 'wptelegram_five_minutely', 'wptelegram_widget_pull_updates' );
+		}
+	}
 }

@@ -1,17 +1,18 @@
-=== WP Telegram Widget ===
+=== WP Telegram Channel Widget ===
 Contributors: manzoorwanijk
 Donate link: https://paypal.me/manzoorwanijk
 Tags: telegram, feed, widget, channel, group
 Requires at least: 3.8.0
-Tested up to: 4.9.4
-Stable tag: 1.2.0
+Tested up to: 4.9.8
+Requires PHP: 5.3
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display the Telegram Public Channel or Group Feed in a widget or anywhere using a shortcode.
+Display the Telegram Public Channel or Group Feed in a WordPress widget or anywhere you want using a simple shortcode.
 
 == Description ==
-Display the Telegram Public Channel or Group Feed in a widget or anywhere using a shortcode.
+Display the Telegram Public Channel or Group Feed in a WordPress widget or anywhere you want using a simple shortcode.
 
 You can display the feed anywhere you want using a simple shortcode `[wptelegram-widget num_messages="5" widget_width="100" author_photo="auto"]`
 
@@ -21,6 +22,8 @@ You can display the feed anywhere you want using a simple shortcode `[wptelegram
 *	Telegram [@WPTelegram](https://t.me/WPTelegram)
 *	Facebook [@WPTelegram](https://fb.com/WPTelegram)
 *	Twitter [@WPTelegram](https://twitter.com/WPTelegram)
+
+== Excellent LIVE Support on Telegram ==
 
 **Join the Chat**
 
@@ -57,6 +60,22 @@ You can also contribute in translating this plugin into your local language. Joi
 5. Widget Messages List
 
 == Changelog ==
+
+= 1.3.3 =
+* Prepare for WP Telegram 2.0.0
+
+= 1.3.2 =
+* Fixed the DOMDocument error when allow_url_fopen is off
+* Switched to normal HTTP requests to fetch the remote HTML
+
+= 1.3.1 =
+* Fixed the Parse Error in older PHP versions
+
+= 1.3.0 =
+* Major upgrade
+* Fixes the static width of widgets
+* Auto remove deleted messages
+* Performance improvements
 
 = 1.2.0 =
 * Fixed the problem with empty widget title

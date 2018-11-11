@@ -1,20 +1,20 @@
 <?php
 /**
- * List Table API: Wptelegram_Widget_Messages_List class
+ * List Table API: WPTelegram_Widget_Messages_List class
  *
  * @link       https://t.me/manzoorwanijk
  * @since      1.0.0
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/admin
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/admin
  */
 
 /**
  * Class used to implement displaying employees in a list table.
  *
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/admin
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/admin
  * @author     Manzoor Wani 
  * @since 1.0.0
  *
@@ -25,7 +25,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
-class Wptelegram_Widget_Messages_List extends WP_List_Table {
+class WPTelegram_Widget_Messages_List extends WP_List_Table {
 
 	public $messages;
 
@@ -37,8 +37,8 @@ class Wptelegram_Widget_Messages_List extends WP_List_Table {
 			'plural'	=> __( 'Posts', 'wptelegram-widget' ), //plural name of the listed records
 			'ajax'		=> false //does this table support ajax?
 		) );
-		$option = 'wptelegram_widget_messages';
-		$this->messages = get_option( $option, array() );
+
+		$this->messages = WPTG_Widget()->options()->get( 'messages', array() );
 	}
 
 	/**
@@ -57,15 +57,14 @@ class Wptelegram_Widget_Messages_List extends WP_List_Table {
 	 * @param int $message_id Message ID
 	 */
 	public function delete_message( $message_id ) {
-		if ( ( $key = array_search( $message_id, (array)$this->messages ) ) !== false ) {
+		if ( ( $key = array_search( $message_id, (array) $this->messages ) ) !== false ) {
 		    unset( $this->messages[ $key ] );
 		}
 		$this->update_messages();
 	}
 
 	private function update_messages() {
-		$option = 'wptelegram_widget_messages';
-		update_option( $option, $this->messages );
+		WPTG_Widget()->options()->set( 'messages', $this->messages );
 	}
 
 	/**
@@ -110,7 +109,8 @@ class Wptelegram_Widget_Messages_List extends WP_List_Table {
 	 * @return string
 	 */
 	private function get_message_link( $message_id ){
-		$username = wptelegram_widget_get_option( 'username' );
+		
+		$username = WPTG_Widget()->options()->get( 'username' );
 		$url = "https://t.me/{$username}/{$message_id}";
 		return '<a href="' . esc_attr( $url ) . '" target="_blank">' . $url . '</a>';
 	}
@@ -123,8 +123,10 @@ class Wptelegram_Widget_Messages_List extends WP_List_Table {
 	 * @return string
 	 */
 	private function get_message_widget( $message_id ){
-		$username = wptelegram_widget_get_option( 'username' );
-		$html = '<div style="max-height:300px;overflow:scroll;"><script async src="https://telegram.org/js/telegram-widget.js?3" data-telegram-post="' . $username . '/' . $message_id . '" data-width="100%"></script><div>';
+
+		$url = admin_url( 'admin-post.php?action=wptelegram_widget_view&message_id=' . $message_id );
+		
+		$html = '<div class="wptelegram_widget_list-message" style="max-height:300px;"><iframe frameborder="0" scrolling="no" width="100%" src="' . esc_attr( $url ) . '">Your Browser Does Not Support iframes!</iframe><div>';
 		return $html;
 	}
 
@@ -276,7 +278,7 @@ class Wptelegram_Widget_Messages_List extends WP_List_Table {
 	public function may_be_redirect() {
 		$url = remove_query_arg( array( 'action', '_wpnonce' ) );
 		if( ! headers_sent() ){
-			wp_safe_redirect( esc_url_raw( $url ), WP_Http::SEE_OTHER );
+			wp_safe_redirect( esc_url_raw( $url ), 302 );
 			exit;
 		} else {
 			$destination = $url == false ? 'location.reload();' : 'window.location.href="' . $url . '";';

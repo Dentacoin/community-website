@@ -9,8 +9,8 @@
  * @link       https://t.me/manzoorwanijk
  * @since      1.0.0
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  * @author     Manzoor Wani 
  */
-class Wptelegram_Widget_i18n {
+class WPTelegram_Widget_i18n {
 
 
 	/**

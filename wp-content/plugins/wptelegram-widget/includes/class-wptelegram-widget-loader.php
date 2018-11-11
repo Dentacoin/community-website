@@ -6,8 +6,8 @@
  * @link       https://t.me/manzoorwanijk
  * @since      1.0.0
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  * @author     Manzoor Wani 
  */
-class Wptelegram_Widget_Loader {
+class WPTelegram_Widget_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

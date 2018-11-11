@@ -1,6 +1,11 @@
 <?php
 
-if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
+// If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
+if ( ! class_exists( 'WPTelegram_Bot_API_Loader_107', false ) ) {
 	/**
 	 * Handles checking for and loading the newest version of WPTelegram_Bot_API
 	 * 
@@ -8,7 +13,7 @@ if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
 	 * to ensure that only the latest version is loaded
 	 * @see https://github.com/CMB2/CMB2/blob/v2.3.0/init.php
 	 *
-	 * @since  1.0.0
+	 * @since  1.0.1
 	 *
 	 * @category  WordPress_Plugin Addon
 	 * @package   WPTelegram_Bot_API
@@ -16,37 +21,37 @@ if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
 	 * @license   GPL-2.0+
 	 * @link      https://t.me/WPTelegram
 	 */
-	class WPTelegram_Bot_API_Loader_100 {
+	class WPTelegram_Bot_API_Loader_107 {
 
 		/**
 		 * Current version number
 		 *
 		 * @var   string
-		 * @since 1.0.0
+		 * @since 1.0.1
 		 */
-		const VERSION = '1.0.0';
+		const VERSION = '1.0.7';
 
 		/**
 		 * Current version hook priority.
 		 * Will decrement with each release
 		 *
 		 * @var   int
-		 * @since 1.0.0
+		 * @since 1.0.1
 		 */
-		const PRIORITY = 9999;
+		const PRIORITY = 9992;
 
 		/**
-		 * Single instance of the WPTelegram_Bot_API_Loader_100 object
+		 * Single instance of the WPTelegram_Bot_API_Loader_107 object
 		 *
-		 * @var WPTelegram_Bot_API_Loader_100
+		 * @var WPTelegram_Bot_API_Loader_107
 		 */
 		public static $single_instance = null;
 
 		/**
-		 * Creates/returns the single instance WPTelegram_Bot_API_Loader_100 object
+		 * Creates/returns the single instance WPTelegram_Bot_API_Loader_107 object
 		 *
-		 * @since  1.0.0
-		 * @return WPTelegram_Bot_API_Loader_100 Single instance object
+		 * @since  1.0.1
+		 * @return WPTelegram_Bot_API_Loader_107 Single instance object
 		 */
 		public static function initiate() {
 			if ( null === self::$single_instance ) {
@@ -62,7 +67,7 @@ if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
 		 * Hooks WPTelegram_Bot_API inclusion to the after_setup_theme hook on a high priority which decrements
 		 * (increasing the priority) with each version release.
 		 *
-		 * @since 1.0.0
+		 * @since 1.0.1
 		 */
 		private function __construct() {
 			/**
@@ -84,7 +89,7 @@ if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
 		 * A final check if WPTelegram_Bot_API exists before kicking off our WPTelegram_Bot_API loading.
 		 * WPTELEGRAM_API_VERSION constant is set at this point.
 		 *
-		 * @since  1.0.0
+		 * @since  1.0.1
 		 */
 		public function include_wptelegram_bot_api() {
 			if ( class_exists( 'WPTelegram_Bot_API', false ) ) {
@@ -106,7 +111,7 @@ if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
 		/**
 		 * Autoloads files with WPTelegram_Bot_API classes when needed
 		 *
-		 * @since  1.0.0
+		 * @since  1.0.1
 		 * @param  string $class_name Name of the class being requested
 		 */
 		public static function wptelegram_bot_api_autoload_classes( $class_name ) {
@@ -120,5 +125,5 @@ if ( ! class_exists( 'WPTelegram_Bot_API_Loader_100', false ) ) {
 			include_once( "{$path}/class-{$class_name}.php" );
 		}
 	}
-	WPTelegram_Bot_API_Loader_100::initiate();
+	WPTelegram_Bot_API_Loader_107::initiate();
 }

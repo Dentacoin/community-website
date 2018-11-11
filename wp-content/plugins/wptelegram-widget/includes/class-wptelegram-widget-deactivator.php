@@ -6,8 +6,8 @@
  * @link       https://t.me/manzoorwanijk
  * @since      1.0.0
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  */
 
 /**
@@ -16,21 +16,22 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  * @author     Manzoor Wani 
  */
-class Wptelegram_Widget_Deactivator {
+class WPTelegram_Widget_Deactivator {
 
 	/**
-	 * Short Description. (use period)
+	 * Clean up the things
 	 *
-	 * Long Description.
+	 * Delete cron jobs etc.
 	 *
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
 
+		wp_clear_scheduled_hook( 'wptelegram_widget_pull_updates' );
 	}
 
 }

@@ -6,8 +6,8 @@
  * @link       https://t.me/manzoorwanijk
  * @since      1.0.0
  *
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  */
 
 /**
@@ -16,21 +16,21 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Wptelegram_Widget
- * @subpackage Wptelegram_Widget/includes
+ * @package    WPTelegram_Widget
+ * @subpackage WPTelegram_Widget/includes
  * @author     Manzoor Wani 
  */
-class Wptelegram_Widget_Activator {
+class WPTelegram_Widget_Activator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+	 * Create the cron(s)
 	 *
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+		if ( ! wp_next_scheduled ( 'wptelegram_widget_pull_updates' ) ) {
+	        wp_schedule_event( time(), 'wptelegram_five_minutely', 'wptelegram_widget_pull_updates' );
+	    }
 	}
 
 }

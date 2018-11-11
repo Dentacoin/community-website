@@ -53,6 +53,9 @@
     margin-left: 10px;
     vertical-align: middle;
 }
+.option-wptelegram_widget > h2{
+    display: none;
+}
  .option-wptelegram_widget #bot-info{
  	color:#bb0f3b;
  }
@@ -66,7 +69,7 @@
  .option-wptelegram_widget li, .option-wptelegram_widget p {
     font-size: 16px !important;
 }
-.option-wptelegram_widget code {
+.option-wptelegram_widget code, .option-wptelegram_widget pre {
     padding: 2px 4px;
     font-size: 95%;
     color: #bb0f3b;

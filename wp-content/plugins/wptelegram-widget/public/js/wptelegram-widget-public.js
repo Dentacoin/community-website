@@ -1,40 +1,36 @@
 (function( $ ) {
 	'use strict';
+	var widget = {};
+    widget.configure = function(){
+        widget.wrap = $( '.wptelegram-widget-wrap' );
+        widget.iframe = widget.wrap.find('.wptelegram-widget-message iframe');
+    };
+    widget.init = function () {
+        widget.configure();
+        widget.iframe.on( 'load', widget.set_iframe );
+        // widget.iframe.on( 'load', widget.resize_iframe );
+        widget.iframe.on( 'resize_iframe', widget.resize_iframe );
 
-	/**
-	 * All of the code for your public-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
-	 */
-	 $( window ).on('message',window, function(e,params) {
-	 	var height = JSON.parse(e.originalEvent.data).height;
-	 	console.log(height);
-	 	//this.style.height = height;
-	 });
-	 $('iframe').load(function() {
-	    this.style.height =
-	    this.contentWindow.document.body.offsetHeight;
-	});
+        $(window).on('resize', function( evt ){
+	    	widget.iframe.trigger('resize_iframe');
+	    } );
+    };
+    widget.set_iframe = function( evt ){
+        var $this = $(this);
+        if ($this.contents().find('body').is(':empty')){
+            $this.parent().remove();
+            // reconfigure
+            widget.configure();
+        } else {
+            $this.trigger('resize_iframe');
+        }
+    };
+    widget.resize_iframe = function( evt ) {
+        // this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+        $(this).height( $(this).contents().find('body').height() );
+    };
+
+    // trigger on $(document).ready();
+    $(widget.init);
+
 })( jQuery );
