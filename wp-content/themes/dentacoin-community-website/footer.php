@@ -72,7 +72,7 @@
 
 
 
-<script>
+<!-- <script>
 
   jQuery(document).ready(function() {
  		jQuery('html').addClass('js');
@@ -99,7 +99,7 @@
 	  });
   });
 
-</script>
+</script> -->
 
 
 

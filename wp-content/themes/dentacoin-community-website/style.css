@@ -283,11 +283,19 @@ a {
     float:left;
 } */
 
+/* .nav-secondary {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+} */
+
 .nav-secondary ul {
     padding:0;
     margin:0;
     list-style:none;
-    float:left;
+    float:left; /* sorgt dafür, dass privacy policy nicht komisch dargestellt wird (in 2 zeilen) */
+
 }
 
 .nav-social ul {
@@ -298,6 +306,7 @@ a {
 
 .nav-social li {
     float:left;
+
 }
 .nav-social li a {
     display: block;
@@ -361,4 +370,37 @@ a {
     .nav-secondary li {
         float:left;
         margin-right:2px;
+}
+
+
+
+
+
+@media screen and (max-width:587px) {
+  .site-footer {
+
+      width:100%;
+  }
+
+  .nav-secondary {
+
+  }
+
+  .nav-secondary ul {
+
+      align-items: center;
+      justify-content: center;
+  }
+
+
+
+  .nav-social {
+
+  }
+
+  .nav-social li,
+  .nav-secondary li {
+
+      margin-right:2px;
+
 }
