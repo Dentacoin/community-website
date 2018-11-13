@@ -92,7 +92,7 @@ a {
 
 /* Navigation */
 
-#toggle-nav {
+/* #toggle-nav {
     position: absolute;
     right: 1em;
     top: 0;
@@ -105,11 +105,11 @@ a {
 
     color: white;
     font-family: "Ubuntu Regular";
-}
+} */
 
-.js .site-nav {
+/* .js .site-nav {
     display:none;
-}
+} */
 
 .site-nav {
     margin-top:1em;
