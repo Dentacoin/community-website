@@ -50,18 +50,18 @@ function wpv_customize_register($wp_customize) {
 	));
 
     // Bedienfelder (Controls) für BlendModes
-	$wp_customize->add_control('wpv_blendmode_control', array(
-		'label'   => 'Select blendmode',
-		'section' => 'wpv_section',
-		'settings' => 'wpv_blendmodes',
-		'type'    => 'select',
-		'choices' => array(
-			'normal' => 'Normal',
-			'multiply' => 'Multiply',
-      'difference' => 'Difference',
-			'soft-light' => 'Soft light',
-		),
-	));
+	// $wp_customize->add_control('wpv_blendmode_control', array(
+	// 	'label'   => 'Select blendmode',
+	// 	'section' => 'wpv_section',
+	// 	'settings' => 'wpv_blendmodes',
+	// 	'type'    => 'select',
+	// 	'choices' => array(
+	// 		'normal' => 'Normal',
+	// 		'multiply' => 'Multiply',
+  //     'difference' => 'Difference',
+	// 		'soft-light' => 'Soft light',
+	// 	),
+	// ));
 
 	// Bedienfelder (Controls) für Schriftfarbe
 	$wp_customize->add_control(

@@ -129,7 +129,7 @@ a {
 
 .site-nav a {
     background:white;
-    padding:1em;
+    padding:0.8em;
     display:block;
     text-decoration:none;
 
@@ -303,7 +303,7 @@ a {
     display: block;
     color: black;
     text-align: center;
-    padding: 4px;
+                                                                    padding:0.25px;
     text-decoration: none;
 }
 
@@ -322,11 +322,11 @@ a {
 .nav-social a,
 .nav-secondary a {
     display:block;
-    padding:1em;
+                                                                    padding:0.6em;
     /* background:rgba(0,0,0,0.3); */
     text-decoration: none;
 
-    border-color: black;
+                                                                    border-color: white;
     border-width: 1.5px;
     border-style: solid;
 
@@ -335,7 +335,7 @@ a {
 
 .nav-social a:hover,
 .nav-secondary a:hover {
-    background:rgba(0,0,0,0.3);
+    background:rgba(0,0,0,0);
 }
 
 /* .nav-secondary .current-menu-item a {

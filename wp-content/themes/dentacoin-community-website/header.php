@@ -14,12 +14,14 @@
         .container::before {
             content:'';
             display:block;
-            position: absolute;
+            position:absolute;
             top:0;
             left:0;
             right:0;
-            height:<?php echo get_custom_header()->height; ?>px;
+            /* height:<?php echo get_custom_header()->height; ?>px; */
+            height: 110px;
             background:url(<?php header_image();?>) top center no-repeat;
+            margin-top:5px;
         }
 
         .admin-bar .container::before {
@@ -28,7 +30,7 @@
 
         body {
             padding-top:calc(<?php echo get_custom_header()->height; ?>px + 20px);
-            background-blend-mode: <?php $wpv_blendmodes = get_option('wpv_blendmodes'); echo $wpv_blendmodes ;?>;
+            /* background-blend-mode: <?php $wpv_blendmodes = get_option('wpv_blendmodes'); echo $wpv_blendmodes ;?>; */
             color: <?php $wpv_color = get_option('wpv_color'); echo $wpv_color ;?>;
         }
 
