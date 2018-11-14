@@ -1,3 +1,3 @@
 <section <?php post_class();?>>
-<p>Nichts gefunden.</p>
+<p>Nothing found.</p>
 </section>

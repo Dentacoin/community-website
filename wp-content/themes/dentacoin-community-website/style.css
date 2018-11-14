@@ -162,9 +162,9 @@ a {
         display:block;
     }
 
-    #toggle-nav {
+    /* #toggle-nav {
         display:none;
-    }
+    } */
 
 }
 
@@ -198,12 +198,12 @@ a {
      padding:0 1em;
      font-family: "Calibri";
      /* font-size: 14px; */
+}
 
 .site-content h1 a {
     font-family: "Ubuntu light";
 }
 
-}
 
 @media screen and (min-width:600px) {
     .site-content {
@@ -370,37 +370,4 @@ a {
     .nav-secondary li {
         float:left;
         margin-right:2px;
-}
-
-
-
-
-
-@media screen and (max-width:587px) {
-  .site-footer {
-
-      width:100%;
-  }
-
-  .nav-secondary {
-
-  }
-
-  .nav-secondary ul {
-
-      align-items: center;
-      justify-content: center;
-  }
-
-
-
-  .nav-social {
-
-  }
-
-  .nav-social li,
-  .nav-secondary li {
-
-      margin-right:2px;
-
 }
